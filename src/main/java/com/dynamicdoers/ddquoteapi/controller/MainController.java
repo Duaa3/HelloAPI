@@ -13,7 +13,7 @@ public class MainController {
             responses.put("Result", "Hello " + name);
             responses.put("Status", "200");
         } catch (Exception e) {
-            responses.put("Error", e.getMessage());
+            responses.put("Errors", e.getMessage());
             responses.put("Status", "500");
         }
         return responses;
