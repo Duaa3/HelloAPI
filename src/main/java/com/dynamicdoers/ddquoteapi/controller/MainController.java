@@ -9,9 +9,13 @@ public class MainController {
     @GetMapping(path = "/api/hw")
     public HashMap<String, String> getRequest(@RequestParam(value = "name", defaultValue = "Word") String name) {
         HashMap<String, String> responses = new HashMap<String, String>();
-
-        responses.put("Result", "Hello " + name);
-        responses.put("Status", "200");
+        try {
+            responses.put("Result", "Hello " + name);
+            responses.put("Status", "200");
+        } catch (Exception e) {
+            responses.put("Error", e.getMessage());
+            responses.put("Status", "500");
+        }
         return responses;
     }
     @PostMapping(path = "/api/post")
